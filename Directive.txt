@@ -6,9 +6,81 @@ php artisan migrate
 คำอธิบายเพิ่ม
 แต่ในกรณีที่คุณได้รันคำสั่ง migrate มาก่อนแล้ว และได้มีการแก้ไขหรือสร้างไฟล์ Migration ใหม่ คุณอาจต้องใช้คำสั่ง migrate:refresh เพื่อยกเลิกการปรับใช้ Migration ทั้งหมดและรันใหม่ หรือ migrate:rollback เพื่อย้อนกลับ Migration ล่าสุด ก่อนที่คุณจะรันคำสั่ง migrate อีกครั้ง.
 $table->string('DefaultPathImageNews')->unsigned()->change(); เมื่อต้องการลบให้เขียนแบบนี้ต่อท้าย
+$table->unsignedBigInteger('User_id')->unique(); เมื่อ unique คือห้ามมีข้อมูลซ้ำกัน
 
 การสร้างController
 php artisan make:controller UserController --resource
 
 คำสั่งรัน
 php artisan serve 
+
+Clone
+เมื่อคุณโคลนโปรเจกต์ Laravel เพื่อเริ่มต้นการพัฒนา คุณต้องทำขั้นตอนต่อไปนี้:
+1. Clone Repository: ใช้คำสั่ง git clone เพื่อคลายโค้ดของโปรเจกต์ Laravel จาก Repository ที่คุณต้องการโคลน ตัวอย่างเช่น:
+git clone https://github.com/your-repository.git
+แทน `https://github.com/your-repository.git` ด้วยลิงก์โครงการที่คุณต้องการโคลน
+2. Install Dependencies: เปิดโครงการที่คุณโคลนลงในเครื่องแล้วใช้คำสั่ง composer install เพื่อติดตั้งแพคเกจที่จำเป็นสำหรับโปรเจกต์ Laravel นี้:
+composer install
+3. Copy Environment Configuration: ทำสำเนาไฟล์ `.env.example` เป็น `.env` ในโครงการ Laravel ของคุณ โดยใช้คำสั่ง:
+cp .env.example .env
+4. Generate Application Key: ใช้คำสั่ง `php artisan key:generate` เพื่อสร้างคีย์แอปพลิเคชันที่เป็นเฉพาะของโปรเจกต์ Laravel:
+php artisan key:generate
+5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน
+6. Run Migrations: ใช้คำสั่ง `php artisan migrate` เพื่อรัน Migration และสร้างตารางในฐานข้อมูล
+php artisan migrate
+7. Start Development Server: สุดท้าย, ใช้คำสั่ง `php artisan serve` เพื่อเริ่มต้นเซิร์ฟเวอร์พัฒนาที่ localhost:8000 (หรือพอร์ตอื่น ๆ ถ้าถูกกำหนดไว้)
+php artisan serve
+โดยปกติ, คุณจะสามารถเข้าถึงโปรเจกต์ Laravel ที่ http://localhost:8000 ในเบราว์เซอร์ของคุณ
+โดยมาตราการเพิ่มเติมที่คุณอาจต้องดำเนินการได้เพื่อกำหนดค่าเพิ่มเติม หรือติดตั้งคำสั่งเพิ่มเติม คุณควรอ่านเอกสารการติดตั้ง Laravel ที่มาพร้อมกับโครงการเพื่อทราบขั้นตอนและข้อกำหนดที่ต้องปฏิบัติตามในโครงการ Laravel ของคุณ
+
+เมื่อต้องการปรับเปลี่ยนกับฐานข้อมูล
+หากคุณมีการแก้ไข Migration และต้องการอัพเดตหรือสร้าง Migration ใหม่เพื่อใช้งานการเปลี่ยนแปลงใหม่ในฐานข้อมูล คุณสามารถทำได้ตามขั้นตอนต่อไปนี้:
+1. ยกเลิกการปรับใช้ Migration ก่อนหน้า (Opsional): หากคุณได้ทำการรัน Migration ก่อนหน้าแล้วและต้องการยกเลิกการปรับใช้ Migration ที่แก้ไขไปแล้ว คุณสามารถใช้คำสั่ง `php artisan migrate:rollback` เพื่อย้อนกลับและยกเลิกการปรับใช้ Migration ล่าสุด.
+2. แก้ไขหรือสร้าง Migration: ทำการแก้ไขหรือสร้างไฟล์ Migration ที่ต้องการตามที่คุณต้องการ. คุณสามารถใช้คำสั่ง `php artisan make:migration` เพื่อสร้างไฟล์ Migration ใหม่หรือแก้ไขไฟล์ Migration เดิมตามที่คุณต้องการ.
+3. ลบไฟล์ Migration ในตาราง `migrations` (Opsional): หากคุณทำการแก้ไขไฟล์ Migration เดิม คุณอาจต้องลบรายการของไฟล์ Migration เดิมออกจากตาราง `migrations` ในฐานข้อมูลของคุณ นี่เป็นขั้นตอนเพื่อให้ Laravel รับรู้ถึงการเปลี่ยนแปลงในไฟล์ Migration ใหม่ที่คุณสร้างหรือแก้ไข.
+4. รัน Migration: เมื่อคุณได้ทำการแก้ไขหรือสร้างไฟล์ Migration ใหม่ตามที่คุณต้องการ คุณสามารถรันคำสั่ง `php artisan migrate` เพื่อปรับใช้การเปลี่ยนแปลงในฐานข้อมูล. Laravel จะอ่านไฟล์ Migration ที่มีสถานะ "ยังไม่ถูกปรับใช้" และปรับใช้การเปลี่ยนแปลงที่คุณได้ทำ.
+โปรดทราบว่าการแก้ไขหรือสร้าง Migration ใหม่อาจมีผลกระทบต่อข้อมูลที่มีอยู่ในฐานข้อมูล ดังนั้นคุณควรทำการสำรองข้อมูลหรือดำเนินการอื่นที่เกี่ยวข้องกับการเปลี่ยนแปลงข้อมูลให้ถูกต้องเสมอ ก่อนที่คุณจะรัน Migration ที่มีการปรับเปลี่ยนในระบบสมบูรณ์
+https://makitweb.com/how-to-update-table-structure-using-migration-laravel/
+ลิ้งนี้ข้อ 4 คือการออัพเดช
+
+php artisan serve = คำสั่งเปลี่ยนพอต :8000
+php artisan serve --port =80 = คำสั่งเปลี่ยนพอต :80
+Route::get('blog/{id}',function($id){ return "ID : ".$id; }); = บังคับให้ใส่ ID
+Route::get('profile/{id?}',function($id=null){ return "ID2 : ".$id; }); = ไม่ให้ใส่ ID ก็ได้
+m = ตัวเชื่อมกับฐานข้อมูล
+v = ต่วเชื่อผู้ใช้งานกับผู้ใช้ระบบ ui ต่าง
+c = โลจิกตัวขับเครื่อนควบคุมตรงกลางความคุมทั้งหมด
+php artisan make:controller ชื่อไฟล์ที่จะสร้าง = คำสังสร้างไฟล์ใหม่Controller
+ที่ตั้งส่วนที่ดาต้าเบสเกินมา
+C:\xampp\htdocs\VGH3\VGHRM\vendor\laravel\framework\src\Illuminate\Database\Migrations\DatabaseMigrationRepository.php
+https://www.youtube.com/watch?v=UqOpcDU3uYg
+
+คำสังรัน
+php artisan serve
+คำสังรันเครื่องอื่น
+sudo php artisan serve --host 192.168.1.101 --port 80
+คำสังสร้างดาต้าเบส
+php artisan migrate
+จัดการฐานข้อมูล
+php artisan make:model User -m
+คำสั่งไว้เพิ่มลบจัดการ
+php artisan make:controller UserController --resource
+คำสั่งสร้างหน้าแอดมิน
+
+เปลี่ยนเวลาของlaravel
+เปลี่ยนจาก
+    'timezone' => 'UTC',
+เป็น
+    'timezone' => 'Asia/Bangkok',
+
+ค่าที่ใช้ตัวแปรกับ with เพื่อส่งค่าแล้วไปแสดงใน Session::get('success') และจะหายไป
+'success' ที่มักจะใช้ในการเก็บค่าสถานะเพื่อแสดงผลข้อความสำเร็จ
+'error': ใช้ในการเก็บค่าเกี่ยวกับข้อผิดพลาดหรือข้อความแสดงข้อผิดพลาด
+'message': ใช้ในการเก็บข้อความทั่วไปหรือข้อความสำหรับแสดงผลในหน้าต่าง ๆ
+'info': ใช้ในการเก็บข้อมูลสำหรับแสดงข้อมูลสถานะหรือข้อความที่เกี่ยวข้อง
+'warning': ใช้ในการเก็บข้อมูลเกี่ยวกับข้อความเตือนหรือข้อความที่ควรระวัง
+'user_id': ใช้ในการเก็บค่าไอดีผู้ใช้หรือข้อมูลผู้ใช้งานปัจจุบัน
+'cart': ใช้ในการเก็บค่ารายการสินค้าในตะกร้าสินค้า
+'language': ใช้ในการเก็บค่าภาษาที่ผู้ใช้เลือกหรือการตั้งค่าภาษา
+
+

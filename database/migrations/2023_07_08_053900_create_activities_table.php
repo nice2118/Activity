@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Category_id')->unique();
-            $table->unsignedBigInteger('User_id')->unique();
+            $table->unsignedBigInteger('Category_id');
+            $table->unsignedBigInteger('User_id');
             $table->date('Date');
             $table->time('Time');
             $table->string('Title');
