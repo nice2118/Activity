@@ -5,6 +5,10 @@ php artisan make:model <ชื่อตาราง> -m  ตย. php artisan mak
 php artisan migrate
 คำอธิบายเพิ่ม
 แต่ในกรณีที่คุณได้รันคำสั่ง migrate มาก่อนแล้ว และได้มีการแก้ไขหรือสร้างไฟล์ Migration ใหม่ คุณอาจต้องใช้คำสั่ง migrate:refresh เพื่อยกเลิกการปรับใช้ Migration ทั้งหมดและรันใหม่ หรือ migrate:rollback เพื่อย้อนกลับ Migration ล่าสุด ก่อนที่คุณจะรันคำสั่ง migrate อีกครั้ง.
+$table->string('DefaultPathImageNews')->unsigned()->change(); เมื่อต้องการลบให้เขียนแบบนี้ต่อท้าย
 
 การสร้างController
 php artisan make:controller UserController --resource
+
+คำสั่งรัน
+php artisan serve 
