@@ -22,7 +22,7 @@ git clone https://github.com/your-repository.git
 2. Install Dependencies: เปิดโครงการที่คุณโคลนลงในเครื่องแล้วใช้คำสั่ง composer install เพื่อติดตั้งแพคเกจที่จำเป็นสำหรับโปรเจกต์ Laravel นี้:
 composer install
 3. Copy Environment Configuration: ทำสำเนาไฟล์ `.env.example` เป็น `.env` ในโครงการ Laravel ของคุณ โดยใช้คำสั่ง:
-cp .env.example .env
+cp .env.example .env    (activity)
 4. Generate Application Key: ใช้คำสั่ง `php artisan key:generate` เพื่อสร้างคีย์แอปพลิเคชันที่เป็นเฉพาะของโปรเจกต์ Laravel:
 php artisan key:generate
 5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน
