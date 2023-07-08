@@ -1,0 +1,10 @@
+คำสังสร้างตาราง
+php artisan make:model <ชื่อตาราง> -m  ตย. php artisan make:model Company -m
+
+คำสั่งอัพขึ้นSQL
+php artisan migrate
+คำอธิบายเพิ่ม
+แต่ในกรณีที่คุณได้รันคำสั่ง migrate มาก่อนแล้ว และได้มีการแก้ไขหรือสร้างไฟล์ Migration ใหม่ คุณอาจต้องใช้คำสั่ง migrate:refresh เพื่อยกเลิกการปรับใช้ Migration ทั้งหมดและรันใหม่ หรือ migrate:rollback เพื่อย้อนกลับ Migration ล่าสุด ก่อนที่คุณจะรันคำสั่ง migrate อีกครั้ง.
+
+การสร้างController
+php artisan make:controller UserController --resource
