@@ -79,7 +79,7 @@ php artisan key:generate
 5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน เช่นเปลี่ยน DB_DATABASE=laravel เป็น DB_DATABASE=activity
 6. Run Migrations: ใช้คำสั่ง `php artisan migrate` เพื่อรัน Migration และสร้างตารางในฐานข้อมูล
 php artisan migrate
-7. Start Development Server: สุดท้าย, ใช้คำสั่ง `php artisan serve` เพื่อเริ่มต้นเซิร์ฟเวอร์พัฒนาที่ localhost:8000 (หรือพอร์ตอื่น ๆ ถ้าถูกกำหนดไว้)
+7. Start Development Server: สุดท้าย, ใช้คำสั่ง `npm install && npm run dev` และ `php artisan serve` เพื่อเริ่มต้นเซิร์ฟเวอร์พัฒนาที่ localhost:8000 (หรือพอร์ตอื่น ๆ ถ้าถูกกำหนดไว้)
 npm install && npm run dev และ php artisan serve
 โดยปกติ, คุณจะสามารถเข้าถึงโปรเจกต์ Laravel ที่ http://localhost:8000 ในเบราว์เซอร์ของคุณ
 โดยมาตราการเพิ่มเติมที่คุณอาจต้องดำเนินการได้เพื่อกำหนดค่าเพิ่มเติม หรือติดตั้งคำสั่งเพิ่มเติม คุณควรอ่านเอกสารการติดตั้ง Laravel ที่มาพร้อมกับโครงการเพื่อทราบขั้นตอนและข้อกำหนดที่ต้องปฏิบัติตามในโครงการ Laravel ของคุณ
