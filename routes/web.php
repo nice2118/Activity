@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivitiesController;
+use Illuminate\Support\Facades\Auth;
 
 Route::resource('Activities',ActivitiesController::class);
 
@@ -18,10 +19,6 @@ Route::resource('Activities',ActivitiesController::class);
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/a', function () {
-    return view('master');
 });
 
 Auth::routes();
