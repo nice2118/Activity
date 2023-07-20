@@ -25,7 +25,7 @@ composer install
 cp .env.example .env    (เปลี่ยนเป็นชื่อนี้ activity)
 4. Generate Application Key: ใช้คำสั่ง `php artisan key:generate` เพื่อสร้างคีย์แอปพลิเคชันที่เป็นเฉพาะของโปรเจกต์ Laravel:
 php artisan key:generate
-5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน
+5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน เช่นเปลี่ยน DB_DATABASE=laravel เป็น DB_DATABASE=activity
 6. Run Migrations: ใช้คำสั่ง `php artisan migrate` เพื่อรัน Migration และสร้างตารางในฐานข้อมูล
 php artisan migrate
 7. Start Development Server: สุดท้าย, ใช้คำสั่ง `php artisan serve` เพื่อเริ่มต้นเซิร์ฟเวอร์พัฒนาที่ localhost:8000 (หรือพอร์ตอื่น ๆ ถ้าถูกกำหนดไว้)
