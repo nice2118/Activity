@@ -64,3 +64,22 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Setup
+
+เมื่อคุณโคลนโปรเจกต์ Laravel เพื่อเริ่มต้นการพัฒนา คุณต้องทำขั้นตอนต่อไปนี้:
+1. Clone Repository: ใช้คำสั่ง git clone เพื่อคลายโค้ดของโปรเจกต์ Laravel จาก Repository ที่คุณต้องการโคลน ตัวอย่างเช่น:
+git clone git@github.com:nice2118/Activity.git
+แทน `git@github.com:nice2118/Activity.git` ด้วยลิงก์โครงการที่คุณต้องการโคลน
+2. Install Dependencies: เปิดโครงการที่คุณโคลนลงในเครื่องแล้วใช้คำสั่ง composer install เพื่อติดตั้งแพคเกจที่จำเป็นสำหรับโปรเจกต์ Laravel นี้:
+composer install
+3. Copy Environment Configuration: ทำสำเนาไฟล์ `.env.example` เป็น `.env` ในโครงการ Laravel ของคุณ โดยใช้คำสั่ง:
+cp .env.example .env    (เปลี่ยนเป็นชื่อนี้ activity)
+4. Generate Application Key: ใช้คำสั่ง `php artisan key:generate` เพื่อสร้างคีย์แอปพลิเคชันที่เป็นเฉพาะของโปรเจกต์ Laravel:
+php artisan key:generate
+5. Configure Database: แก้ไขไฟล์ `.env` เพื่อกำหนดการเชื่อมต่อฐานข้อมูล ป้อนรายละเอียดที่ถูกต้องสำหรับฐานข้อมูลที่คุณต้องการใช้งาน
+6. Run Migrations: ใช้คำสั่ง `php artisan migrate` เพื่อรัน Migration และสร้างตารางในฐานข้อมูล
+php artisan migrate
+7. Start Development Server: สุดท้าย, ใช้คำสั่ง `php artisan serve` เพื่อเริ่มต้นเซิร์ฟเวอร์พัฒนาที่ localhost:8000 (หรือพอร์ตอื่น ๆ ถ้าถูกกำหนดไว้)
+npm install && npm run dev และ php artisan serve
+โดยปกติ, คุณจะสามารถเข้าถึงโปรเจกต์ Laravel ที่ http://localhost:8000 ในเบราว์เซอร์ของคุณ
+โดยมาตราการเพิ่มเติมที่คุณอาจต้องดำเนินการได้เพื่อกำหนดค่าเพิ่มเติม หรือติดตั้งคำสั่งเพิ่มเติม คุณควรอ่านเอกสารการติดตั้ง Laravel ที่มาพร้อมกับโครงการเพื่อทราบขั้นตอนและข้อกำหนดที่ต้องปฏิบัติตามในโครงการ Laravel ของคุณ
