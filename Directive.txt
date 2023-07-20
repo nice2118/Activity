@@ -33,6 +33,26 @@ npm install && npm run dev และ php artisan serve
 โดยปกติ, คุณจะสามารถเข้าถึงโปรเจกต์ Laravel ที่ http://localhost:8000 ในเบราว์เซอร์ของคุณ
 โดยมาตราการเพิ่มเติมที่คุณอาจต้องดำเนินการได้เพื่อกำหนดค่าเพิ่มเติม หรือติดตั้งคำสั่งเพิ่มเติม คุณควรอ่านเอกสารการติดตั้ง Laravel ที่มาพร้อมกับโครงการเพื่อทราบขั้นตอนและข้อกำหนดที่ต้องปฏิบัติตามในโครงการ Laravel ของคุณ
 
+.env  สมัคร https://mailtrap.io/
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=806091af406873
+MAIL_PASSWORD=efdd0e55f3589e
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="nice2118@outlook.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+https://www.itsolutionstuff.com/post/laravel-9-send-mail-using-gmail-smtp-serverexample.html
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=kphumrueng@gmail.com
+MAIL_PASSWORD=08509512182118
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="kphumrueng@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
 เมื่อต้องการปรับเปลี่ยนกับฐานข้อมูล
 หากคุณมีการแก้ไข Migration และต้องการอัพเดตหรือสร้าง Migration ใหม่เพื่อใช้งานการเปลี่ยนแปลงใหม่ในฐานข้อมูล คุณสามารถทำได้ตามขั้นตอนต่อไปนี้:
 1. ยกเลิกการปรับใช้ Migration ก่อนหน้า (Opsional): หากคุณได้ทำการรัน Migration ก่อนหน้าแล้วและต้องการยกเลิกการปรับใช้ Migration ที่แก้ไขไปแล้ว คุณสามารถใช้คำสั่ง `php artisan migrate:rollback` เพื่อย้อนกลับและยกเลิกการปรับใช้ Migration ล่าสุด.
