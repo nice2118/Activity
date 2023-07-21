@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
+
+    <link href="{{ asset('images/Logo1.png') }}" rel="shortcut icon">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -22,7 +24,7 @@
     <div class="wrapper">
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('images/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60"
+            <img class="animation__shake" src="{{ asset('images/Logo.png') }}" alt="AdminLTELogo" height="60"
                 width="60">
         </div>
 
@@ -119,9 +121,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="{{ asset('images/AdminLTELogo.png') }}" alt="GUNKUL Logo"
+                <img src="{{ asset('images/Logo.png') }}" alt="GunKul Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">GUNKUL</span>
+                <span class="brand-text font-weight-light">GunKul</span>
             </a>
 
             @include('layouts.navigation')
